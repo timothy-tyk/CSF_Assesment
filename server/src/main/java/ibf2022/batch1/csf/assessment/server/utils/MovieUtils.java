@@ -8,6 +8,7 @@ import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
+import jakarta.json.JsonValue;
 
 public class MovieUtils {
   
@@ -15,7 +16,13 @@ public class MovieUtils {
     InputStream is = new ByteArrayInputStream(response.getBytes());
 		JsonReader jReader = Json.createReader(is);
 		JsonObject jsonResponse = jReader.readObject();
-		JsonArray resultArray = jsonResponse.getJsonArray("results");
+    JsonArray resultArray;
+    if(jsonResponse.get("results")==JsonValue.NULL){
+      resultArray = JsonArray.EMPTY_JSON_ARRAY;
+    }else{
+
+      resultArray = jsonResponse.getJsonArray("results");
+    }
 		List<Review> reviews = resultArray.stream().map(v -> Review.fromJson(v.asJsonObject())).toList();
     return reviews;
   }

@@ -34,4 +34,6 @@
     </td>
   </tr>
 </table>
-<h3 *ngIf="hasItLoaded && movies == null">Your Search Produces No Result</h3>
+<h3 *ngIf="hasItLoaded && movies.length == 0">
+  Your Search Produces No Result
+</h3>
