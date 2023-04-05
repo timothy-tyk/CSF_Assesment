@@ -11,7 +11,9 @@
       <div class="container">
         <table>
           <tr>
-            <td>{{ m.title }}</td>
+            <td>
+              <a href="{{ m.reviewUrl }}" target="_blank"> {{ m.title }}</a>
+            </td>
             <td>{{ m.rating }}</td>
           </tr>
           <tr>
@@ -20,6 +22,7 @@
           <tr>
             <td>{{ m.summary }}</td>
           </tr>
+
           <tr>
             <td>Comments:{{ m.commentCount }}</td>
             <td>
