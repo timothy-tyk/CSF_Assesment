@@ -1,0 +1,35 @@
+<h3>Post comment for {{ title }}</h3>
+
+<form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()">
+  <table>
+    <tr>
+      <td>Name: <input type="text" size="30" formControlName="user" /></td>
+    </tr>
+    <tr>
+      <td>
+        Rating: <input type="number" min="1" max="5" formControlName="rating" />
+      </td>
+    </tr>
+    <tr>
+      <td>Comment:</td>
+    </tr>
+    <tr>
+      <td>
+        <textarea
+          rows="5"
+          cols="30"
+          placeholder="Type Here"
+          formControlName="comment"
+        ></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" (click)="goBack()">Back</button>
+      </td>
+      <td>
+        <button type="submit" [disabled]="commentForm.invalid">Post</button>
+      </td>
+    </tr>
+  </table>
+</form>

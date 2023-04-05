@@ -1,0 +1,7 @@
+img {
+  height: 150px;
+}
+.container {
+  border: 1px black solid;
+  border-radius: 25;
+}

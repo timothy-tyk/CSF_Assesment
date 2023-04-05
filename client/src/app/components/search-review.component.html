@@ -1,0 +1,14 @@
+<form [formGroup]="searchForm" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr>
+      <td>Movie name:</td>
+      <td><input type="text" size="40" formControlName="query" /></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="searchForm.invalid">Search</button>
+      </td>
+    </tr>
+  </table>
+</form>
